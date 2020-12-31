@@ -106,3 +106,108 @@ console.log(num);
 const gnum = prompt("Guess the number between 1 and 10 inclusive");
 if (gnum == num) console.log("Matched");
 else console.log("Not matched, the number was " + gnum);
+
+// write  javascript program to calculate days left until next christmas
+today = new Date();
+var cmas = new Date(today.getFullYear(), 11, 25);
+if (today.getMonth() == 11 && today.getDate() > 25) {
+  cmas.setFullYear(cmas.getFullYear() + 1);
+}
+var one_day = 1000 * 60 * 60 * 24;
+console.log(
+  Math.ceil((cmas.getTime() - today.getTime()) / one_day) +
+    " days left until Christmas!"
+);
+
+// write a javascript program to get the extension of a filename
+let filename = "system.php";
+console.log(filename.split(".").pop());
+filename = "abc.js";
+console.log("FILENAME", filename.split(".").pop());
+
+// Write a JavaScript program to get the difference between a given number and 13, if the number is greater than 13 return double the absolute difference
+const absDiff = (num) => {
+  let diff = num - 13;
+  if (num > 13) {
+    return Math.abs(diff) * 2;
+  } else {
+    return num - 14;
+  }
+};
+
+console.log("ABS", absDiff(32));
+
+//method 2 using tenary
+function difference(n) {
+  return n > 13 ? (n - 13) * 2 : 13 - n;
+}
+console.log(difference(7));
+console.log(difference(32));
+
+// Write a JavaScript program to compute the sum of the two given integers. If the two values are same, then returns triple their sum
+
+const sumOfNumbers = (int1, int2) => {
+  if (int1 === int2) {
+    const sum = int1 + int2;
+    return 3 * sum;
+  } else {
+    return sum;
+  }
+};
+
+console.log(sumOfNumbers(4, 4));
+
+//  Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50
+
+function checkNums(x, y) {
+  if (x == 50 || y == 50 || x + y == 50) {
+    return true;
+  }
+  return false;
+}
+
+console.log(checkNums(50, 4));
+console.log(checkNums(10, 4));
+
+// Write a JavaScript program to check whether a given integer is within 20 of 100 or 400
+function twenty(x) {
+  if (Math.abs(100 - x) <= 20 || Math.abs(400 - x) <= 20) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(twenty(10));
+console.log(twenty(90));
+
+// Write a JavaScript program to check from two given integers, whether one is positive and another one is negative
+const checkInt = (int1, int2) => {
+  if (int1 < 0 && int2 > 0) {
+    console.log(int2 + " " + "is positive");
+  } else if (int1 > 0 && int2 < 0) {
+    console.log(int1 + "is positive");
+  } else if (int1 > 0 && int2 > 0) {
+    console.log("both numbers are positive");
+  } else {
+    console.log("non of the numbers are positive");
+  }
+};
+console.log(checkInt(-1, -6));
+
+// solution 2
+function positive_negative(x, y)
+{
+  if ((x < 0 && y > 0) || x > 0 && y < 0) 
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+console.log(positive_negative(2, 2));
+console.log(positive_negative(-2, 2));
+console.log(positive_negative(2, -2));
+console.log(positive_negative(-2, -2));
+
