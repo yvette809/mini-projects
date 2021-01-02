@@ -195,14 +195,10 @@ const checkInt = (int1, int2) => {
 console.log(checkInt(-1, -6));
 
 // solution 2
-function positive_negative(x, y)
-{
-  if ((x < 0 && y > 0) || x > 0 && y < 0) 
-  {
+function positive_negative(x, y) {
+  if ((x < 0 && y > 0) || (x > 0 && y < 0)) {
     return true;
-  }
-  else 
-  {
+  } else {
     return false;
   }
 }
@@ -211,3 +207,48 @@ console.log(positive_negative(-2, 2));
 console.log(positive_negative(2, -2));
 console.log(positive_negative(-2, -2));
 
+//  Write a JavaScript program to create a new string adding "Py" in front of a given string. If the given string begins with "Py" then return the original string
+
+function checkPy(str) {
+  if (str.substring(0, 2) === "py") {
+    return str;
+  } else {
+    return `py${str}`;
+  }
+}
+console.log(checkPy("python"));
+console.log(checkPy("roam"));
+//2
+
+function checkPy(str) {
+  return str.substring(0, 2) === "py" ? str : `py${str}`;
+}
+checkPy("thing");
+
+// Write a JavaScript program to remove a character at the specified position of a given string and return the new string
+function remove_character(str, char_pos) {
+  part1 = str.substring(0, char_pos);
+  part2 = str.substring(char_pos + 1, str.length);
+  return part1 + part2;
+}
+
+console.log(remove_character("Python", 0));
+console.log(remove_character("Python", 3));
+console.log(remove_character("Python", 5));
+
+//  Write a JavaScript program to create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1
+
+function first_last(str1) {
+  if (str1.length <= 1) {
+    return str1;
+  }
+  let first = str1.charAt(0),
+    last = str1.charAt(str1.length - 1);
+  middle = str1.substring(1, str1.length - 1);
+  return last + middle + first;
+  // mid_char = str1.substring(1, str1.length - 1);
+  // return str1.charAt(str1.length - 1) + mid_char + str1.charAt(0);
+}
+console.log(first_last("a"));
+console.log(first_last("ab"));
+console.log(first_last("abc"));
