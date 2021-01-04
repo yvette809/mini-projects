@@ -252,3 +252,120 @@ function first_last(str1) {
 console.log(first_last("a"));
 console.log(first_last("ab"));
 console.log(first_last("abc"));
+
+// Write a JavaScript program to create a new string from a given string with the first character of the given string added at the front and back
+
+function newStr(str) {
+  const firstChar = str.charAt(0);
+  const expectedStr = firstChar + str + firstChar;
+  return expectedStr;
+}
+console.log(newStr("Nice"));
+console.log(newStr("Eliora"));
+
+//sol2
+function front_back(str) {
+  first = str.substring(0, 1);
+  return first + str + first;
+}
+console.log(front_back("abc"));
+
+// Write a JavaScript program to check whether a given positive number is a multiple of 3 or a multiple of 7
+function test37(x) {
+  if (x % 3 == 0 || x % 7 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(test37(12));
+console.log(test37(14));
+console.log(test37(10));
+console.log(test37(11));
+
+// Write a JavaScript program to create a new string from a given string taking the last 3 characters and added at both the front and back. The string length must be 3 or more
+
+function threeStr(str) {
+  if (str.length >= 3) {
+    var str2 = str.substring(str.length - 3);
+    return (str = `${str2}${str}${str2}`);
+  } else {
+    return str;
+  }
+}
+
+console.log(threeStr("goat"));
+console.log(threeStr("got"));
+console.log(threeStr("go"));
+
+// Write a JavaScript program to check whether a string starts with 'Java' and false otherwise
+
+function java(str) {
+  if (str.slice(0, 4) == "java") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(java("javascript"));
+console.log(java("python"));
+
+// log all pairs of arrays
+
+const numb = [1, 2, 3, 4, 5, 6];
+
+const arrayPairs = () => {
+  for (let i = 0; i < numb.length; i++) {
+    for (let j = 0; j < numb.length; j++) {
+      console.log(numb[i], numb[j]);
+    }
+  }
+};
+arrayPairs();
+
+//given 2 arrayPairs, create a functiom that let a user know(true/false) whether these two arrays contain any common items
+//sol1
+const array1 = ["a", "b", "c", "d", "x"];
+const array2 = ["z", "y", "i", "d", "x"];
+
+const containsCommonItem = (arr1, arr2) => {
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+console.log(containsCommonItem(array1, array2));
+
+//sol2
+function containsCommonItem2(arr1, arr2) {
+  // loop through first array and create object where properties === items in the array
+
+  let map = {};
+  for (let i = 0; i < arr1.length; i++) {
+    if (!map[array1[i]]) {
+      const item = arr1[i];
+      map[item] = true;
+    }
+  }
+  // loop through second array and check if item in second array exists on created object
+  for (let j = 0; j < arr2.length; j++) {
+    if (map[array2[j]]) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(containsCommonItem2(array1, array2));
+
+// sol3
+function containsCommonItem3(arr1, arr2) {
+  return arr1.some((item) => arr2.includes(item));
+}
+console.log(containsCommonItem3(array1, array2));
