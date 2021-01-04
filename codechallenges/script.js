@@ -18,6 +18,19 @@ function palindrome(str) {
 }
 console.log(palindrome("A man, a plan, a canal. Panama"));
 
+//sol2
+function palindrome(str) {
+  const reversed = str.split("").reverse().join("");
+  return str = reversed;
+}
+//sol3
+function palindrome(str){
+  str.split("").every((char,i)=>{
+    return char === str[str.length-i -1]
+    
+  })
+}
+
 //3 function that generates alll combinations of a string
 var today = new Date();
 var day = today.getDay();
