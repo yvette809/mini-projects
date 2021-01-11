@@ -39,7 +39,7 @@ class App extends React.Component {
           <TodoInput
             item={this.state.item}
             handleChange={this.handleChange}
-            handleSubit={this.handleSubmit}
+            handleSubmit={this.handleSubmit}
             editItem={this.state.editItem}
           />
           <TodoList
