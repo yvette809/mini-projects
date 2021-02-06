@@ -15,10 +15,22 @@ class App extends React.Component {
   };
 
   handleChange = (e) => {
-    console.log("hadle change");
+    this.setState({ item: e.target.value });
   };
   handleSubmit = (e) => {
-    console.log("hadle submit");
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item,
+    };
+
+    const updatedItems = [...this.state.items, newItem];
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuidv4(),
+      editItem: false,
+    });
   };
   clearList = () => {
     console.log("clear list");
@@ -30,6 +42,7 @@ class App extends React.Component {
     console.log(`edit edit  ${id}`);
   };
   render() {
+    console.log(this.state)
     return (
       <div className="container">
         <div className="row">
