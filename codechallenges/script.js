@@ -24,10 +24,10 @@ function palindrome(str) {
   return str = reversed;
 }
 //sol3
-function palindrome(str){
-  str.split("").every((char,i)=>{
-    return char === str[str.length-i -1]
-    
+function palindrome(str) {
+  str.split("").every((char, i) => {
+    return char === str[str.length - i - 1]
+
   })
 }
 
@@ -129,7 +129,7 @@ if (today.getMonth() == 11 && today.getDate() > 25) {
 var one_day = 1000 * 60 * 60 * 24;
 console.log(
   Math.ceil((cmas.getTime() - today.getTime()) / one_day) +
-    " days left until Christmas!"
+  " days left until Christmas!"
 );
 
 // write a javascript program to get the extension of a filename
@@ -382,3 +382,28 @@ function containsCommonItem3(arr1, arr2) {
   return arr1.some((item) => arr2.includes(item));
 }
 console.log(containsCommonItem3(array1, array2));
+
+
+
+//Write a JavaScript function that returns a passed string with letters in alphabetical order
+
+function alphabet_order(str) {
+  return str.split('').sort().join('');
+}
+console.log(alphabet_order("webmaster"));
+
+
+// Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string.
+function vowel_count(str1) {
+  var vowel_list = 'aeiouAEIOU';
+  var vcount = 0;
+
+  for (var x = 0; x < str1.length; x++) {
+    if (vowel_list.indexOf(str1[x]) !== -1) {
+      vcount += 1;
+    }
+
+  }
+  return vcount;
+}
+console.log(vowel_count("The quick brown fox"));
