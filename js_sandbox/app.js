@@ -168,7 +168,7 @@ function onClick(e) {
 
 const clearBtn = document.querySelector('.clear-tasks')
 const card = document.querySelector('.card')
-const heading = document.querySelector('h5')
+const heading = document.querySelector('h2')
 
 // click
 //clearBtn.addEventListener('click', runEvent)
@@ -183,14 +183,77 @@ const heading = document.querySelector('h5')
 //clearBtn.addEventListener('mouseup', runEvent)
 
 //mouseenter
-card.addEventListener('mouseenter', runEvent)
+//card.addEventListener('mouseenter', runEvent)
+
+//mousemove
+card.addEventListener('mousemove', runEvent)
 
 
 // Event Handler
 
 function runEvent(e) {
   console.log(`Event TYPE : ${e.type}`)
+  heading.textContent = `MouseX: ${e.offsetX} MouseY:${e.offsetX}`
+  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`
 }
 
 
 
+// form events
+
+const form = document.querySelector('form')
+const taskInput = document.getElementById('task')
+
+//clear input
+taskInput.value = ""
+taskInput.addEventListener('keydown', runEvent)
+
+form.addEventListener('submit', runEvent)
+
+function runEvent(e) {
+  console.log(`EVENT TYPE : ${e.type}`)
+
+  console.log(e.target.value)
+  //heading.innerText=e.target.value
+  // console.log(taskInput.value)
+  // e.preventDefault()
+}
+
+// Event bubbling
+// document.querySelector('.card-title').addEventListener('click', function(){
+//   console.log('card title')
+// })
+
+// document.querySelector('.card-content').addEventListener('click', function(){
+//   console.log('card content')
+// })
+
+// document.querySelector('.card').addEventListener('click', function(){
+//   console.log('card')
+// })
+
+// document.querySelector('.col').addEventListener('click', function(){
+//   console.log('col')
+// })
+
+
+// Event delegation
+
+//const delItem = document.querySelector('.delete-item')
+//delItem.addEventListener('click', deleteItem)
+
+document.body.addEventListener('click', deleteItem)
+
+function deleteItem(e) {
+ 
+  console.log(e.target)
+  // if(e.target.parentElement.className=== 'delete-item secondary-content'){
+  //   console.log('delete item')
+
+  // }
+
+  if(e.target.parentElement.classList.contains('delete-item')){
+    console.log('delete item')
+    e.target.parentElement.parentElement.remove()
+  }
+}
