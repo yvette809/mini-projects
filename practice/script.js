@@ -1,35 +1,31 @@
-const ul = document.querySelector('.list-item')
+const form = document.querySelector('.signup-form')
+const feedback = document.querySelector('.feedback')
+const usernamePattern = /^[a-zA-z]{6,12}$/
+//const username= document.querySelector("#username")
 
-// create element
+form.addEventListener('submit', e=>{
+    e.preventDefault()
+    //console.log(username.value)
+    // validation
+   const username=  form.username.value
+   
 
-const li = document.createElement('li')
+   if(usernamePattern.test(username)){
+       // feedback good info
+       feedback.textContent ='the username is valid'
+   }else{
+       //feedback help info
+       feedback.textContent= 'username must contain letters and be between 6 and 12 characters long'
+   }
+})
 
-//add class
 
-li.className = 'collection-item'
-//add id
+// live feedback
+form.username.addEventListener('keyup', e=>{
+    if(usernamePattern.test(e.target.value)){
+       form.username.setAttribute('class', 'success')
+    }else{
+        form.username.setAttribute('class', 'error')
+    }
 
-li.id = 'new-item'
-
-// add attribute
-li.setAttribute('type', 'New item')
-//add color
-li.style.color = 'green'
-
-// create text node and append
-li.appendChild(document.createTextNode('Hello world'))
-//li.textContent=  'hello world'
-
-// create new link element
-const link = document.createElement('a')
-link.className = 'delete-item'
-
-// add icon html
-link.innerHTML = '<li class= "fa fa-remove></li>'
-
-//append link in to li
-li.appendChild(link)
-
-// append li as child to ul
-ul.appendChild(li)
-console.log(li)
+})
